@@ -18,7 +18,7 @@ The app consists of a React frontend and a json-server backend.
 
 ### Backend
 
-To start up the backend server run `json-server -p 4000 --watch db.json` in a terminal (project location). Note the `-p 4000 flag` to run the backend over port 4000.
+To start up the backend server run `json-server -p 4000 --watch db.json` in a terminal (project location). Note the `-p 4000` flag to run the backend over port 4000.
 
 ### Frontend
 
