@@ -1,16 +1,41 @@
 import React from "react";
+import { Link, Router } from "react-router-dom";
 
-type Props = {};
+type Props = {
+  title: string;
+};
 
-export default function SiteHeader({}: Props) {
+// Header shown on every page
+
+const SiteHeader = ({ title }: Props) => {
   return (
     <div className="site-header">
-      <img
-        className="site-header__img"
-        src="assets\images\RST-073-logo-Team-Rockstars-IT.png"
-        alt=""
-      />
-      <h1>Header</h1>
+      <div className="">
+        <header className="site-header__top container">
+          <Link to="/">
+            <img
+              className="site-header__logo"
+              src={require("../assets/images/RST-073-logo-Team-Rockstars-IT.png")}
+              alt="Logo"
+            />
+          </Link>
+          <nav className="site-header__nav">
+            <ul>
+              <li>
+                <Link to="/">Artists</Link>
+              </li>
+              <li>
+                <Link to="/playlists">Playlists</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <div className="site-header__main">
+          <h1 className="site-header__title">{title}</h1>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default SiteHeader;

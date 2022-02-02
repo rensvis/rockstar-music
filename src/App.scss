@@ -1,0 +1,278 @@
+@mixin atSmall {
+    @media (max-width: 530px) {
+        @content;
+    }
+}
+
+@mixin atMedium {
+    @media (max-width: 700px) {
+        @content;
+    }
+}
+
+@mixin fullSize {
+    @media (min-width: 700px) {
+        @content;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --black: #000000;
+    --grey: #232323;
+    --white: #FFFFFF;
+    --yellow: #FFE000;
+}
+
+body {
+    // color: var(--white);
+    // background-color: var(--grey);
+}
+
+h1,
+h3,
+h3 {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    line-height: 1 !important;
+}
+
+h1 {
+    @include atMedium() {
+        font-size: 30px;
+    }
+
+    @include atSmall() {
+        font-size: 30px;
+    }
+}
+
+a {
+    color: var(--black);
+}
+
+input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    text-transform: uppercase;
+    background-color: var(--yellow);
+    padding: 10px;
+    font-weight: bold;
+    transition: all .2s;
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+
+    span {
+        margin-left: 5px;
+    }
+
+    &:hover:not(.disabled) {
+        transform: scale(1.05)
+    }
+
+    &.disabled {
+        background-color: lightgray;
+        // color: var(--black);
+        cursor: not-allowed;
+    }
+}
+
+main {
+    padding: 30px 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    &--narrow {
+        max-width: 600px;
+    }
+}
+
+.rockstar-list {
+    list-style: none;
+
+    li {
+        display: block !important;
+        position: relative;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 5px 0;
+        padding-right: 30px;
+
+        &:not(:nth-last-of-type(1)) {
+            border-bottom: solid 1px var(--black) !important;
+        }
+
+        &::after,
+        &:before {
+            content: '\25B6';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: 12px;
+        }
+
+        &:before {
+            margin-right: 7px;
+        }
+    }
+}
+
+// header
+.site-header {
+    background-color: var(--yellow);
+    position: relative;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &__logo {
+        width: 90px;
+        height: 90px;
+        object-fit: contain;
+    }
+
+    &__nav {
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 350px;
+        padding: 20px;
+        text-align: center;
+
+        @include atSmall {
+            height: 350px;
+            ;
+        }
+    }
+}
+
+
+// artists
+.artist-search {
+    margin-bottom: 30px;
+
+
+
+    input {
+        width: 100%;
+    }
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+// artist
+.song-results {
+    &__list {
+        list-style: none;
+    }
+}
+
+// playlists
+.new-playlist {
+    margin-bottom: 20px;
+}
+
+// playlist {
+.playlist {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+        border-bottom: solid 1px var(--grey);
+    }
+
+    // &__delete {
+    //     text-align: right;
+    // }
+
+    &__list {
+        margin-top: 20px;
+        list-style: none;
+    }
+}
+
+// song
+.song {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    &__info {}
+
+    &__name {
+        text-transform: uppercase;
+    }
+
+    &__actions {
+        margin-left: 20px;
+    }
+}
+
+// atp modal
+.atp {
+    overflow: visible;
+    width: 100%;
+    padding-right: 3px;
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
