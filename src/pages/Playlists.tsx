@@ -23,12 +23,13 @@ export default function Playlists({}: Props) {
     loading,
     error,
   }: { data: IPlaylist[]; loading: boolean; error: boolean } = useFetch(
-    "http://localhost:3000/playlists"
+    "http://localhost:4000/playlists"
   );
 
   // update playlists when data changes
   useEffect(() => {
-    setPlaylists((oldPlaylists: IPlaylist[]) => data);
+    setPlaylists(data);
+    console.log(data);
   }, [data]);
 
   // update newPlaylistName
@@ -43,7 +44,7 @@ export default function Playlists({}: Props) {
     // make post request
     axios({
       method: "POST",
-      url: "http://localhost:3000/playlists",
+      url: "http://localhost:4000/playlists",
       data: {
         name: newPlaylistName,
       },

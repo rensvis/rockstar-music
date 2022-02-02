@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { ISong } from "../interfaces";
 import SongItem, { SongActionType } from "./SongItem";
 
@@ -16,19 +16,39 @@ describe("SongItem component test", () => {
     year: 0,
   };
 
-  it("SongItem component shows correct song name", () => {
-    render(
+  it("SongItem component renders", () => {
+    const { getByTestId } = render(
       <SongItem
         song={song}
         actionType={SongActionType.add}
         actionHandler={() => {}}
       />
     );
-
-    const songNameElement = screen.getByText(song.name);
-    expect(songNameElement).toBeInTheDocument();
-    screen.debug();
+    const li = getByTestId("song-item");
+    expect(li).toBeTruthy();
   });
 
-  it("SongItem component formats song duration correctly", () => {});
+  it("SongItem component shows correct song name", () => {
+    const { getByTestId } = render(
+      <SongItem
+        song={song}
+        actionType={SongActionType.add}
+        actionHandler={() => {}}
+      />
+    );
+    const songNameElement = getByTestId("song-name");
+    expect(songNameElement.innerHTML).toBe(song.name);
+  });
+
+  it("SongItem component formats song duration correctly", () => {
+    const { getByTestId } = render(
+      <SongItem
+        song={{ ...song, duration: 209995 }}
+        actionType={SongActionType.add}
+        actionHandler={() => {}}
+      />
+    );
+    const songNameElement = getByTestId("song-duration");
+    expect(songNameElement.innerHTML).toBe("3:29");
+  });
 });

@@ -27,7 +27,7 @@ const Artist: FC = ({}: Props) => {
     loading,
     error,
   }: { data: ISong[]; loading: boolean; error: boolean } = useFetch(
-    "http://localhost:3000/songs",
+    "http://localhost:4000/songs",
     { artist: name }
   );
 

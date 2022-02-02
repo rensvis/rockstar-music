@@ -26,7 +26,7 @@ const useArtistSearch = (query: string, pageNumber: number) => {
     // make request
     axios({
       method: "GET",
-      url: "http://localhost:3000/artists",
+      url: "http://localhost:4000/artists",
       params: {
         q: query,
         _page: pageNumber,

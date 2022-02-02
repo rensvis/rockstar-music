@@ -14,7 +14,7 @@ type Props = {
 // Modal shown on artist page and used to let user add songs to playlists
 
 const AtpModal = ({ closeFunction, open, song }: Props) => {
-  const url: string = "http://localhost:3000/playlists/"; // api url
+  const url: string = "http://localhost:4000/playlists/"; // api url
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // is loading
   const [playlists, setPlaylists] = useState<IPlaylist[]>([]);
@@ -76,9 +76,16 @@ const AtpModal = ({ closeFunction, open, song }: Props) => {
             {playlists.map((playlist: IPlaylist, index: number) => {
               const link = `/playlist/${encodeURIComponent(playlist.id)}`;
               return (
-                <li className="atp__item" key={playlist.id}>
+                <li
+                  role={`atp-${playlist.id}`}
+                  className="atp__item"
+                  key={playlist.id}
+                >
                   <h5>{playlist.name}</h5>
-                  <button onClick={() => clickAtpHandler(playlist)}>
+                  <button
+                    role="add-button"
+                    onClick={() => clickAtpHandler(playlist)}
+                  >
                     <PlusIcon />
                   </button>
                 </li>

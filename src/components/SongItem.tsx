@@ -26,22 +26,40 @@ const SongItem = ({ song, actionType: action, actionHandler }: Props) => {
     return `${minutes.toString()}:${secondsFormatted}`; // return readable duration
   };
 
+  console.log(song.duration);
+
   return (
-    <li id={song.id} key={song.id} className="playlist__item">
+    <li
+      id={song.id}
+      key={song.id}
+      className="playlist__item"
+      data-testid="song-item"
+    >
       <div className="song">
         <div className="song__info">
-          <h6 className="song__name">{song.name}</h6>
+          <h6 className="song__name" data-testid="song-name">
+            {song.name}
+          </h6>
           <p className="song__details">
-            {song.artist} | {getSongDuration(song.duration)}
+            <span className="song__details__artist" data-testid="song-artist">
+              {song.artist}
+            </span>
+            <span className="song__details__separator"> | </span>
+            <span
+              className="song__details__duration"
+              data-testid="song-duration"
+            >
+              {getSongDuration(song.duration)}
+            </span>
           </p>
         </div>
         <div className="song__actions">
           {action === SongActionType.delete ? (
-            <button onClick={() => actionHandler()}>
+            <button role={`delete-${song.id}`} onClick={() => actionHandler()}>
               <TrashIcon />
             </button>
           ) : (
-            <button onClick={() => actionHandler()}>
+            <button role={`add-${song.id}`} onClick={() => actionHandler()}>
               <PlusIcon />
             </button>
           )}

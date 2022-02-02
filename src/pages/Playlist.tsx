@@ -14,7 +14,7 @@ type Props = {};
 // Page used to let user scroll through and delete songs in a playlist
 
 const Playlist: FC = ({}: Props) => {
-  const url: string = "http://localhost:3000/playlists/"; // api url
+  const url: string = "http://localhost:4000/playlists/"; // api url
   const [isDeletingSong, setIsDeletingSong] = useState<boolean>(false); // whether user is deleting a song
   const [isDeleting, setIsDeleting] = useState<boolean>(false); // whether user is deleting the playlist
   const [playlist, setPlaylist] = useState<IPlaylist | undefined>(undefined); // the current playlist

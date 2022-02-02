@@ -4,29 +4,38 @@
 
 This is a music app that allows you to create playlists with your favorite songs.
 
-## Available Scripts
+## Prerequisits
 
-In the project directory, you can run:
+You need to have NPM installed on your machine in order to run this app.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone this repo to your desired location. Open the rockstar-music-1 project in a terminal and run `npm install` to download dependencies.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Running the app
 
-### `npm test`
+The app consists of a React frontend and a json-server backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+To start up the backend server run `json-server -p 4000 --watch db.json` in a terminal (project location). Note the `-p 400 flag` to run the backend over port 400.
 
-Builds the app for production to the `build` folder.\
+### Frontend
+
+To start up the frontend open up a second terminal at the project location and run `npm start`.
+
+## Other scrips
+
+### Testing
+
+`npm test` launches the test runner in the interactive watch mode.
+
+`npx cypress open` opens up Cypress where you can run an end-to-end test. Simply click on either the filename of "Run 1 integration spec" to run the test.
+
+### Building
+
+`npm run build` builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app is ready to be deployed!
