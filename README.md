@@ -10,7 +10,7 @@ You need to have NPM installed on your machine in order to run this app.
 
 ## Installation
 
-Clone this repo to your desired location. Open the rockstar-music project in a terminal and run `npm install` to download dependencies.
+Clone this repo to your desired location. Open the rockstar-music project in a terminal and run `npm install` to download the dependencies.
 
 ## Running the app
 
@@ -18,11 +18,11 @@ The app consists of a React frontend and a json-server backend.
 
 ### Backend
 
-To start up the backend server run `json-server -p 4000 --watch db.json` in a terminal (project location). Note the `-p 400 flag` to run the backend over port 400.
+To start up the backend server run `json-server -p 4000 --watch db.json` in a terminal (project location). Note the `-p 400 flag` to run the backend over port 4000.
 
 ### Frontend
 
-To start up the frontend open up a second terminal at the project location and run `npm start`.
+To start up the frontend open up a second terminal at the project location and run `npm start`. Once the app is started you can visit it in your browser at http://localhost:3000.
 
 ## Other scripts
 
