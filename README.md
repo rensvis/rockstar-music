@@ -24,7 +24,7 @@ To start up the backend server run `json-server -p 4000 --watch db.json` in a te
 
 To start up the frontend open up a second terminal at the project location and run `npm start`.
 
-## Other scrips
+## Other scripts
 
 ### Testing
 
