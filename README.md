@@ -10,7 +10,7 @@ You need to have NPM installed on your machine in order to run this app.
 
 ## Installation
 
-Clone this repo to your desired location. Open the rockstar-music-1 project in a terminal and run `npm install` to download dependencies.
+Clone this repo to your desired location. Open the rockstar-music project in a terminal and run `npm install` to download dependencies.
 
 ## Running the app
 
